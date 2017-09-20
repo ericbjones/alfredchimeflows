@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 on alfred_script(q)
 clickPooFire()
 end alfred_script
@@ -44,7 +43,3 @@ on getPooFire()
 		end tell
 	end tell
 end getPooFire
-=======
-# alfredchimeflows
-collection of alfred workflows providing productivity enhancments for Amazon Chime
->>>>>>> 580acb36190c7405107406e7872f12a582d4c45f
