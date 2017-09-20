@@ -8,10 +8,10 @@ on convertListToString(theList, theDelimiter)
 end convertListToString
 
 on alfred_script(q)
-clickPooFire(q)
+clickChannel(q)
 end alfred_script
 
-on clickPooFire(q)
+on clickChannel(q)
 
 --CONFIG:Set path for dependancy cliclick (https://www.bluem.net/en/mac/cliclick/)
 set cliclickpath to "/usr/local/bin/cliclick" --<--replace null with path of cliclick i.e. "/usr/local/bin/cliclick"
@@ -19,7 +19,7 @@ set cliclickpath to "/usr/local/bin/cliclick" --<--replace null with path of cli
 if cliclickpath is null then
 		return "ERROR: cliclickpath varriable is not set"
 end if
-set pooLocation to getPooFire(q)
+set channelLocation to getChannel(q)
 	tell application "System Events"
 		tell application "Amazon Chime" to activate
 		tell application process "Amazon Chime"
@@ -29,7 +29,7 @@ set pooLocation to getPooFire(q)
 
 
 			try
-				tell UI element 1 of row pooLocation of table 1 of scroll area 1 of splitter group 1 of window "Amazon Chime"
+				tell UI element 1 of row channelLocation of table 1 of scroll area 1 of splitter group 1 of window "Amazon Chime"
 					set {xPosition, yPosition} to position
 					set {xSize, ySize} to size
 				end tell
@@ -43,9 +43,9 @@ set pooLocation to getPooFire(q)
 	return fzfMatch
 
 
-end clickPooFire
+end clickChannel
 
-on getPooFire(q)
+on getChannel(q)
 	tell application "System Events"
 		tell application process "Amazon Chime"
 			set allRowNames to get name of first UI element of every row of table 1 of scroll area 1 of splitter group 1 of window "Amazon Chime"
@@ -65,4 +65,4 @@ on getPooFire(q)
 
 		end tell
 	end tell
-end getPooFire
+end getChannel
