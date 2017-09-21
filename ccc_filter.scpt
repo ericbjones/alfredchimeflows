@@ -15,7 +15,7 @@ end tell
 
 set channels to my convertListToString(allRowNames, "
 ")
-set fzfMatch to do shell script "echo " & quoted form of channels & "| /usr/local/bin/fzf -f " & quoted form of q
+set fzfMatch to do shell script "echo " & quoted form of channels & "| /usr/local/bin/fzf -f " & quoted form of q & "| grep -v 'Chat Rooms\\|Recent Messages\\|Favorites'"
 
 set allMatches to paragraphs of fzfMatch
 
